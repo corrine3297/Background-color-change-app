@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [bgColor, setBgColor] = useState('')
+
+  const bgColorChange=(color)=>{
+    
+    setBgColor(color)
+    console.log(bgColor)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className='w-100' style={{height:'100vh'}}>
+        <div className='d-flex mt-5 container' style={{ height: '450px', alignItems:'center',justifyContent:'center',backgroundColor:bgColor }}>
+        
+        </div>
+        <div className='d-flex mt-5' style={{ alignItems: 'center', justifyContent: 'center' }}>
+          <button className='btn btn-primary m-2' onClick={()=>bgColorChange('blue')}> Blue</button>
+          <button className='btn btn-success m-2' onClick={()=>bgColorChange('green')}>Green</button>
+          <button className='btn btn-dark m-2' onClick={()=>bgColorChange('black')}> Black</button>
+          <button className='btn btn-warning m-2' onClick={()=>bgColorChange('yellow')}>Yellow</button>
+        </div>
+      </div>
+    </>
   );
 }
 
